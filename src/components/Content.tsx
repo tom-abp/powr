@@ -1,7 +1,8 @@
+import { HTMLProps } from "react";
 import styled from "styled-components";
 
-export function Content() {
-  return <StyledContent>content</StyledContent>;
+export function Content(props: HTMLProps<HTMLDivElement>) {
+  return <StyledContent {...props}>content</StyledContent>;
 }
 
 export const StyledContent = styled.main`

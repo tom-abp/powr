@@ -3,9 +3,15 @@ import 'styled-components';
 declare module 'styled-components'{
   export interface DefaultTheme{
     background:{
-      main: string,
+      body: string,
       clickable: string
     },
+    border:{
+      clickable: string
+    },
+    color:{
+      body: string
+    }
     sizing:{
       '0': string,
       '1': string,

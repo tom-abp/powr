@@ -11,6 +11,7 @@ import { Container } from "./components/Container";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./components/GlobalStyle";
 import { getTheme } from "./theme";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router>
         <Routes>
           <Route path="/" element={<Template />}>

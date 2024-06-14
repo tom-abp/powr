@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: ${({ theme }) => theme.background.clickable};
+  background: ${({ theme }) => theme.background.clickable};
+  border: ${({ theme }) => theme.border.clickable};
 `;

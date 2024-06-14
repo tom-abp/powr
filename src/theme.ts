@@ -3,8 +3,14 @@ import {DefaultTheme} from 'styled-components';
 export function getTheme(color: 'light' | 'dark', lgMode: boolean = false): DefaultTheme{
   return{
     background:{
-      main: color === 'light' ? '#fff' : '#000',
+      body: color === 'light' ? '#fff' : '#000',
       clickable: color === 'light' ? 'red' : '#333'
+    },
+    border:{
+      clickable: 'none',
+    },
+    color:{
+      body: color === 'light' ? '#000' : '#fff'
     },
     sizing:{
       0: '0rem',

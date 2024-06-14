@@ -1,0 +1,6 @@
+query getTokenPairs {
+  tokenPairs {
+    id
+    name
+  }
+}

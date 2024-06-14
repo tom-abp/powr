@@ -25,6 +25,14 @@ export function getTheme(color: 'light' | 'dark', lgMode: boolean = false): Defa
       9: nSizing(9, lgMode),
       10: nSizing(10, lgMode),
       11: nSizing(11, lgMode),
+    },
+    focusable:{
+      outline:{
+        normal: '2px solid transparent',
+        focus: '2px solid amber',
+        active: '2px solid red',
+        'focus-within': '2px solid amber',
+      }
     }
   }
 }

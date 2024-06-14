@@ -6,13 +6,16 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { Container } from "./components/Container";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
-import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./components/GlobalStyle";
 import { getTheme } from "./theme";
+
+const client = new QueryClient();
 
 function App() {
   const defaultPair = "ETH-USDC";
@@ -25,20 +28,22 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Template />}>
-            <Route path="/:pair/:strike" element={<Content />} />
-            <Route
-              index
-              element={<Navigate to={`/${defaultPair}/${today}`} />}
-            />
-          </Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <QueryClientProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Template />}>
+              <Route path="/:pair/:strike" element={<Content />} />
+              <Route
+                index
+                element={<Navigate to={`/${defaultPair}/${today}`} />}
+              />
+            </Route>
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

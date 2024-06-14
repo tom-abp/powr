@@ -1,0 +1,8 @@
+sources:
+  - name: premia-blue-arbitrum
+    handler:
+      graphql:
+        endpoint: https://api.thegraph.com/subgraphs/id/8SxuHU—ZsSa6R
+
+documents:
+  - ./src/queries/getTokenPairs.graphql

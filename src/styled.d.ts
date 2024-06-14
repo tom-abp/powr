@@ -11,6 +11,14 @@ declare module 'styled-components'{
     },
     color:{
       body: string
+    },
+    focusable:{
+      outline:{
+        normal: string,
+        focus: string,
+        active: string,
+        'focus-within': string,
+      }
     }
     sizing:{
       '0': string,

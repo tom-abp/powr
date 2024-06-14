@@ -10,6 +10,8 @@ import { format } from "date-fns";
 import { Container } from "./components/Container";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
+import { ThemeProvider } from "styled-components";
+import { getTheme } from "./theme";
 
 function App() {
   const defaultPair = "ETH-USDC";
@@ -17,15 +19,24 @@ function App() {
     return format(new Date(), "yyyy-MM-dd");
   }, []);
 
+  const theme = useMemo(() => {
+    return getTheme("light", false);
+  }, []);
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Template />}>
-          <Route path="/:pair/:strike" element={<Content />} />
-          <Route index element={<Navigate to={`/${defaultPair}/${today}`} />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Template />}>
+            <Route path="/:pair/:strike" element={<Content />} />
+            <Route
+              index
+              element={<Navigate to={`/${defaultPair}/${today}`} />}
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

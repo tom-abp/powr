@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu";
+import { Button } from "./Button";
 
 const DropdownComponent = RadixDropdown.Root;
 
-const Trigger = styled(RadixDropdown.Trigger)`
-  color: blue;
-`;
+function Trigger(props: RadixDropdown.DropdownMenuTriggerProps) {
+  return <Button as={RadixDropdown.Trigger} {...props} />;
+}
 
 const Item = styled(RadixDropdown.Item)`
   background: grey;
